@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bed_times">
+        <item>1 мин</item>
+        <item>2 мин</item>
+        <item>5 мин</item>
+        <item>10 мин</item>
+    </string-array>
+</resources>

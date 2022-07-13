@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sans</string>
+    <string name="description">Sans</string>
+    <string name="settings_title">Sans</string>
+    <string name="preference_sleep_title">Sleep after</string>
+    <string name="preference_sleep_summary">Sans will begin to sleep after some period</string>
+</resources>

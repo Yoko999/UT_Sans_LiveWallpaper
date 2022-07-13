@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sans</string>
+    <string name="description">Sans</string>
+    <string name="settings_title">Sans</string>
+    <string name="preference_sleep_title">Сон</string>
+    <string name="preference_sleep_summary">Сон-час Сэнса через заданный период</string>
+</resources>
