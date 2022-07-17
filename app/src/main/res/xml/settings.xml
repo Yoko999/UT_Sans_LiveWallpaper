@@ -10,4 +10,8 @@
             android:entries="@array/bed_times"
             android:entryValues="@array/sleep_values" />
 
+    <CheckBoxPreference android:key="preference_key_sound"
+        android:title="@string/preference_sound"
+        android:checked="true"/>
+
 </PreferenceScreen>

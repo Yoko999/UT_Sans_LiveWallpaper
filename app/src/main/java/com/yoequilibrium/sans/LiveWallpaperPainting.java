@@ -59,6 +59,7 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
     private final int bonesLength = 70;//show bones if screen was touched on lesser than 70px from its borders
     private float /*bgscalex,*/bgscaley;
 
+    private boolean useSound=true;
     private SoundPool sound;
     private int soundId;
 
@@ -67,6 +68,8 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
     private int sleepTime=200;
 
     //private final int frameDuration = 20;//20 = 50 frames per second
+
+    private Bitmap mHeart;//heart cursor
 
     //Конструктор
     public LiveWallpaperPainting(SurfaceHolder surfaceHolder, Context context, Display display,int zzzDelay) {
@@ -108,6 +111,8 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
             Timer zzzTimer=new Timer();
             zzzTask= new SansZzzTimerTask();
             zzzTimer.schedule(zzzTask, afterTime);
+
+            mHeart = BitmapFactory.decodeResource(context.getResources(), R.drawable.heart);
         }catch (IOException ex){
             Log.e("My","Sans не открылся =С "+ex.getMessage());
         }
@@ -148,6 +153,10 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
         synchronized (this) {
             this.notify();
         }
+    }
+
+    public void enableSound(boolean enable){
+        this.useSound = enable;
     }
 
     //Рисуем в потоке все наши рисунки
@@ -213,7 +222,8 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
             bg = bgTouched;
             sleepTime=50;
 
-            sound.play(soundId, 0.3f, 0.3f, 1, 0, 1);
+            if(useSound)
+                sound.play(soundId, 0.3f, 0.3f, 1, 0, 1);
             zzzTask.cancel();
 
             curAction=MotionEvent.ACTION_DOWN;
@@ -251,7 +261,6 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
 
             bg.draw(canvas, drawX, drawY);//TODO: надо как-то посерединке разместить
 
-
             //---Draw bones on screen borders on touch---
             if (curAction == MotionEvent.ACTION_DOWN) {
                 //true visible canvas's size
@@ -272,6 +281,9 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
                     bonesCurRectUD = new Rect(0,clipH-bonesLength,width,clipH);
                     canvas.drawBitmap(bonesHor, null, bonesCurRectUD, null);
                 }
+
+                //draw heart
+                canvas.drawBitmap(mHeart,posX/bgscaley, posY/bgscaley,null);
             } else if (curAction == MotionEvent.ACTION_UP) {
                 bonesCurRectLR=null;
                 bonesCurRectUD=null;
@@ -282,7 +294,6 @@ public class LiveWallpaperPainting extends Thread implements Runnable {
             bg.setTime((int) (System.currentTimeMillis() % bg.duration()));
         }
     }
-
 
     private class SansZzzTimerTask extends TimerTask{
         @Override

@@ -4,4 +4,6 @@
     <string name="settings_title">Sans</string>
     <string name="preference_sleep_title">Sleep after</string>
     <string name="preference_sleep_summary">Sans will begin to sleep after some period</string>
+
+    <string name="preference_sound">Sound</string>
 </resources>

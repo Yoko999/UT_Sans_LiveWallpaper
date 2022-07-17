@@ -4,4 +4,6 @@
     <string name="settings_title">Sans</string>
     <string name="preference_sleep_title">Сон</string>
     <string name="preference_sleep_summary">Сон-час Сэнса через заданный период</string>
+
+    <string name="preference_sound">Звук</string>
 </resources>

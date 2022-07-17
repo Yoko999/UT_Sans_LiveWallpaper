@@ -21,6 +21,7 @@ public class LiveWallpaperService extends WallpaperService {
 
     //public static final String PREFERENCE_SLEEP = "preference_bedtime";
     private int sleepTime=1;
+    private boolean prefSound = true;
 
     @Override
     public Engine onCreateEngine() {
@@ -63,7 +64,11 @@ public class LiveWallpaperService extends WallpaperService {
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
             Log.d("MY prefs","Changed in service");
             sleepTime=Integer.valueOf(prefs.getString("preference_sleeping","1"));
+            prefSound=prefs.getBoolean("preference_key_sound",true);
             Log.d("MY","sleep = "+sleepTime);
+
+            if(painting!=null)
+                painting.enableSound(prefSound);
         }
 
         @Override
