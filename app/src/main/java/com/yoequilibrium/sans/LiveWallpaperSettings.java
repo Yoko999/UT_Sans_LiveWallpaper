@@ -1,3 +1,9 @@
+/**  @author LiveWallpaper by Yoko Equilibrium (Yo Equilibrium)
+             Undertale/Sans by Toby "Radiation" Fox
+    Made for fan Fun and getting some EXP =)
+    Send me message if you got bugs / requests / advices =)
+    yoequilibrium @ gmail.com
+ */
 package com.yoequilibrium.sans;
 
 import android.content.SharedPreferences;
@@ -26,7 +32,7 @@ public class LiveWallpaperSettings extends PreferenceActivity
     }
 
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Log.d("MY pref","Changed in prefs act");
+        Log.d("MY pref","Changed in prefs act");//срабатывает в LiveWallpaperService
     }
 
 }

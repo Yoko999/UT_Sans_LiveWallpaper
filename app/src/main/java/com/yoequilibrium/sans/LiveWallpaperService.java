@@ -1,3 +1,9 @@
+/**  @author LiveWallpaper by Yoko Equilibrium (Yo Equilibrium)
+             Undertale/Sans by Toby "Radiation" Fox
+    Made for fan Fun and getting some EXP =)
+    Send me message if you got bugs / requests / advices =)
+    yoequilibrium @ gmail.com
+ */
 package com.yoequilibrium.sans;
 
 import android.content.Context;
